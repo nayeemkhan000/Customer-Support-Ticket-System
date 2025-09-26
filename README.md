@@ -13,4 +13,5 @@
 ### Ans: in that case, i use props to share the state.
 
 ## How is event handling done in React?
-### Ans: react uses camelCase for event like "onClick". 
+### Ans: react uses camelCase for event like "onClick".
+
