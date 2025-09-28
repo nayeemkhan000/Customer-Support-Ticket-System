@@ -8,18 +8,18 @@ import IssuesManagement from "./Components/IssuesManagement/IssuesManagement";
 import Navbar from "./Components/Navbar";
 import Spinner from "./Components/Spinner";
 
-const fetchTicketData = async () => {
+const fetchingTicketData = async () => {
   const res = fetch("data.json");
   return (await res).json();
 };
 function App() {
-  const fetchPromise = fetchTicketData();
+  const fetchPromiseData = fetchingTicketData();
   return (
     <div className=" bg-[#F5F5F5]">
       <Navbar></Navbar>
 
       <Suspense fallback={<Spinner></Spinner>}>
-        <IssuesManagement fetchPromise={fetchPromise}></IssuesManagement>
+        <IssuesManagement fetchPromiseData={fetchPromiseData}></IssuesManagement>
       </Suspense>
       <Footer></Footer>
       <ToastContainer />
