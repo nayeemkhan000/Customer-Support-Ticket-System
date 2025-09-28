@@ -3,18 +3,18 @@ import { BiError } from "react-icons/bi";
 import HeroCounter from "../HeroCounter";
 import TaskStatus from "./TaskStatus";
 import TicketCard from "./TicketCard";
-const IssuesManagement = ({ fetchPromise }) => {
-  const promiseData = use(fetchPromise);
+const IssuesManagement = ({ fetchPromiseData }) => {
+  const promiseData = use(fetchPromiseData);
 
   const [allData, setAllData] = useState(promiseData);
-  const [ticketData, setTicketData] = useState([]);
+  const [ticketInfo, setTicketInfo] = useState([]);
   const [resolvedData, setResolvedData] = useState([]);
   // console.log(ticketData);
 
   return (
     <>
       <HeroCounter
-        ticketData={ticketData}
+        ticketInfo={ticketInfo}
         resolvedData={resolvedData}
       ></HeroCounter>
 
@@ -35,8 +35,8 @@ const IssuesManagement = ({ fetchPromise }) => {
                 <div key={data.ticketId} className="w-full h-full">
                   <TicketCard
                     resolvedData={resolvedData}
-                    ticketData={ticketData}
-                    setTicketData={setTicketData}
+                    ticketInfo={ticketInfo}
+                    setTicketInfo={setTicketInfo}
                     data={data}
                   />
                 </div>
@@ -46,8 +46,8 @@ const IssuesManagement = ({ fetchPromise }) => {
         </div>
 
         <TaskStatus
-          setTicketData={setTicketData}
-          ticketData={ticketData}
+          setTicketInfo={setTicketInfo}
+          ticketInfo={ticketInfo}
           resolvedData={resolvedData}
           setResolvedData={setResolvedData}
           allData={allData}

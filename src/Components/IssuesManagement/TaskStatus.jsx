@@ -3,8 +3,8 @@ import { FaCheck } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const TaskStatus = ({
-  ticketData,
-  setTicketData,
+  ticketInfo,
+  setTicketInfo,
   resolvedData,
   setResolvedData,
   allData,
@@ -12,8 +12,8 @@ const TaskStatus = ({
 }) => {
   // handle complete task
   const completeTaskHandler = (getData) => {
-    const newTicketData = ticketData.filter((elem) => elem != getData);
-    setTicketData(newTicketData);
+    const newTicketData = ticketInfo.filter((elem) => elem != getData);
+    setTicketInfo(newTicketData);
 
     const changeToResolved = allData.find((elem) => elem == getData);
     changeToResolved.status = "Resolved";
@@ -48,14 +48,14 @@ const TaskStatus = ({
       </div>
 
       <div className="flex flex-col gap-5">
-        {ticketData.length == 0 && (
+        {ticketInfo.length == 0 && (
           <div className="bg-white p-5 rounded-xl flex items-center justify-center gap-2 flex-col ">
             <BiError className="text-5xl"></BiError>
             <p>No In-Process tasks yet.</p>
           </div>
         )}
 
-        {ticketData.map((data, index) => (
+        {ticketInfo.map((data, index) => (
           <div key={index} className="bg-white rounded-2xl p-4">
             <h1 className="text-[#001931] font-medium text-[18px]">
               {data.subject}
